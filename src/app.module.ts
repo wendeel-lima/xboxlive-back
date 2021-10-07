@@ -4,9 +4,10 @@ import { AppService } from './app.service';
 import { GameModule } from './game/game.module';
 import { ProfileModule } from './profile/profile.module';
 import { GenreModule } from './genre/genre.module';
+import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [GameModule, ProfileModule, GenreModule],
+  imports: [GameModule, ProfileModule, GenreModule, UserModule],
   controllers: [AppController],
   providers: [AppService],
 })
