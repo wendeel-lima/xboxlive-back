@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 
 @Injectable()
 export class ProfileService {
-  constructor(private readonly prisma: ProfileService) {}
-
+  constructor(private readonly prisma: PrismaService) {}
   create(createProfileDto: CreateProfileDto) {
     return 'This action adds a new profile';
   }

@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateGenreDto } from './dto/create-genre.dto';
 import { UpdateGenreDto } from './dto/update-genre.dto';
 
 @Injectable()
 export class GenreService {
-  constructor(private readonly prisma: GenreService) {}
-
+  constructor(private readonly prisma: PrismaService) {}
   create(createGenreDto: CreateGenreDto) {
     return 'This action adds a new genre';
   }
