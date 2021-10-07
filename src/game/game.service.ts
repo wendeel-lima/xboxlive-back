@@ -4,6 +4,7 @@ import { UpdateGameDto } from './dto/update-game.dto';
 
 @Injectable()
 export class GameService {
+  constructor(private readonly prisma: GameService) {}
   create(createGameDto: CreateGameDto) {
     return 'This action adds a new game';
   }

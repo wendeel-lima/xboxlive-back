@@ -4,6 +4,8 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UserService {
+  constructor(private readonly prisma: UserService) {}
+
   create(createUserDto: CreateUserDto) {
     return 'This action adds a new user';
   }
