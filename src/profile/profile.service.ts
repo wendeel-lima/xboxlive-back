@@ -6,23 +6,36 @@ import { UpdateProfileDto } from './dto/update-profile.dto';
 @Injectable()
 export class ProfileService {
   constructor(private readonly prisma: PrismaService) {}
-  create(createProfileDto: CreateProfileDto) {
-    return 'This action adds a new profile';
+  create(data: CreateProfileDto) {
+    return this.prisma.profile.create({data});
   }
 
   findAll() {
-    return `This action returns all profile`;
+    return this.prisma.profile.findMany();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} profile`;
+    return this.prisma.profile.findUnique(
+      {
+        where:{id}
+      }
+    );
   }
 
-  update(id: number, updateProfileDto: UpdateProfileDto) {
-    return `This action updates a #${id} profile`;
-  }
+  update(id: number, data: UpdateProfileDto) {
+    return this.prisma.profile.update(
+      {
+        where:{id},
+        data
+      });
+    };
+  
 
   remove(id: number) {
-    return `This action removes a #${id} profile`;
+    return this.prisma.profile.delete(
+      {
+        where:{id}
+      }
+    )
   }
-}
+  }
