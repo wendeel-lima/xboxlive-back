@@ -1,8 +1,14 @@
-import { Profile } from "../entities/profile.entity";
+import { IsNotEmpty, IsOptional, IsString, IsUrl } from 'class-validator';
+import { Profile } from '../entities/profile.entity';
 
+export class CreateProfileDto extends Profile {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 
-export class CreateProfileDto extends Profile{
-    name: string;
-    frontCover?: string;
-    userId: number;
+  @IsUrl()
+  @IsOptional()
+  frontCover?: string;
+
+  userId: number;
 }
