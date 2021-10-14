@@ -13,7 +13,7 @@ model Game {
   frontCover   String?
   description  String?
   year         Int
-  score        Int
+  score        Int?
   linkTreiler  String?
   linkGameplay String?
   genres       Genre[]
@@ -26,7 +26,7 @@ model User {
   surname      String
   cpf          Int       @unique
   email        String
-  password     String?
+  password     String
   profile      Profile[]
   games        Game[]
 }

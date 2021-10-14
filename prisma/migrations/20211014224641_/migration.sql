@@ -5,7 +5,7 @@ CREATE TABLE `Game` (
     `frontCover` VARCHAR(191),
     `description` VARCHAR(191),
     `year` INTEGER NOT NULL,
-    `score` INTEGER NOT NULL,
+    `score` INTEGER,
     `linkTreiler` VARCHAR(191),
     `linkGameplay` VARCHAR(191),
 
@@ -20,7 +20,7 @@ CREATE TABLE `User` (
     `surname` VARCHAR(191) NOT NULL,
     `cpf` INTEGER NOT NULL,
     `email` VARCHAR(191) NOT NULL,
-    `password` VARCHAR(191),
+    `password` VARCHAR(191) NOT NULL,
 
     UNIQUE INDEX `User_name_key`(`name`),
     UNIQUE INDEX `User_cpf_key`(`cpf`),
