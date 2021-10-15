@@ -1,6 +1,4 @@
-import { Prisma } from "@prisma/client";
-
-export class Genre implements Prisma.GenreUncheckedCreateInput {
-    id?: number;
-    name: string;
+export class Genre {
+  id?: number;
+  name: string;
 }

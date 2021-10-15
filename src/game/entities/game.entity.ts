@@ -1,6 +1,4 @@
-import { Prisma } from '@prisma/client';
-
-export class Game implements Prisma.GameUncheckedCreateInput {
+export class Game {
   id?: number;
   name: string;
   frontCover?: string;
