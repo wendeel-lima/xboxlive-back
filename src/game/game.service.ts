@@ -1,3 +1,4 @@
+import { Prisma } from '.prisma/client';
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateGameDto } from './dto/create-game.dto';
@@ -6,8 +7,12 @@ import { UpdateGameDto } from './dto/update-game.dto';
 @Injectable()
 export class GameService {
   constructor(private readonly prisma: PrismaService) {}
-  create(data: CreateGameDto) {
-    return this.prisma.game.create({data});
+
+  create(dto: CreateGameDto) {
+    const data: Prisma.GameCreateInput = {
+      ...dto,
+    };
+    return this.prisma.game.create({ data });
   }
 
   findAll() {
@@ -15,26 +20,21 @@ export class GameService {
   }
 
   findOne(id: number) {
-    return this.prisma.game.findUnique(
-      {
-        where:{id}
-      }
-    );
+    return this.prisma.game.findUnique({
+      where: { id },
+    });
   }
 
   update(id: number, data: UpdateGameDto) {
-    return this.prisma.game.update(
-    {
-      where:{id},
-      data
+    return this.prisma.game.update({
+      where: { id },
+      data,
     });
   }
 
   remove(id: number) {
-    return this.prisma.game.delete(
-      {
-        where:{id}
-      }
-    );
+    return this.prisma.game.delete({
+      where: { id },
+    });
   }
 }

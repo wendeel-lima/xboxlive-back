@@ -7,7 +7,7 @@ import { UpdateGenreDto } from './dto/update-genre.dto';
 export class GenreService {
   constructor(private readonly prisma: PrismaService) {}
   create(data: CreateGenreDto) {
-    return this.prisma.genre.create({data});
+    return this.prisma.genre.create({ data });
   }
 
   findAll() {
@@ -15,27 +15,21 @@ export class GenreService {
   }
 
   findOne(id: number) {
-    return this.prisma.genre.findUnique(
-      {
-        where:{id}
-      }
-    );
+    return this.prisma.genre.findUnique({
+      where: { id },
+    });
   }
 
   update(id: number, data: UpdateGenreDto) {
-    return this.prisma.genre.update(
-    {
-      where:{id},
-      data
+    return this.prisma.genre.update({
+      where: { id },
+      data,
     });
   }
 
   remove(id: number) {
-    return this.prisma.genre.delete(
-      {
-        where:{id}
-      }
-    );
+    return this.prisma.genre.delete({
+      where: { id },
+    });
   }
-
 }

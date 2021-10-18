@@ -10,5 +10,6 @@ export class CreateProfileDto extends Profile {
   @IsOptional()
   frontCover?: string;
 
+  @IsOptional()
   userId: number;
 }

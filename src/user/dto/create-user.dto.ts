@@ -1,11 +1,4 @@
-import { Prisma } from '@prisma/client';
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsNumber,
-  IsOptional,
-  IsString,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, IsNumber, IsString } from 'class-validator';
 import { User } from '../entities/user.entity';
 
 export class CreateUserDto extends User {
@@ -28,7 +21,4 @@ export class CreateUserDto extends User {
   @IsString()
   @IsNotEmpty()
   password: string;
-
-  @IsOptional()
-  profile?: Prisma.ProfileUncheckedCreateNestedManyWithoutUserInput;
 }
