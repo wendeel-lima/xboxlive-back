@@ -3,6 +3,7 @@ import {
   IsDate,
   IsInt,
   IsNotEmpty,
+  IsNumber,
   IsOptional,
   IsString,
   IsUrl,
@@ -22,9 +23,9 @@ export class CreateGameDto extends Game {
   @IsOptional()
   description?: string;
 
-  @IsDate()
+  @IsString()
   @IsNotEmpty()
-  year: number;
+  year: string;
 
   @IsInt()
   @Optional()

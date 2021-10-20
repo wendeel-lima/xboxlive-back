@@ -4,7 +4,7 @@ CREATE TABLE `Game` (
     `name` VARCHAR(191) NOT NULL,
     `frontCover` VARCHAR(191),
     `description` VARCHAR(191),
-    `year` INTEGER NOT NULL,
+    `year` VARCHAR(191) NOT NULL,
     `score` INTEGER,
     `linkTreiler` VARCHAR(191),
     `linkGameplay` VARCHAR(191),

@@ -12,7 +12,7 @@ model Game {
   name         String  @unique
   frontCover   String?
   description  String?
-  year         Int
+  year         String
   score        Int?
   linkTreiler  String?
   linkGameplay String?
