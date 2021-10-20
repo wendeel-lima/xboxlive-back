@@ -8,6 +8,11 @@ import { UpdateGameDto } from './dto/update-game.dto';
 export class GameService {
   constructor(private readonly prisma: PrismaService) {}
 
+  private readonly _include: Prisma.GameInclude = {
+    users: true,
+    genres: true,
+  };
+
   create(dto: CreateGameDto) {
     const usersIds = dto.userIds;
     const genresIds = dto.genresIds;
@@ -28,16 +33,19 @@ export class GameService {
         })),
       },
     };
-    return this.prisma.game.create({ data });
+    return this.prisma.game.create({ data, include: this._include });
   }
 
   findAll() {
-    return this.prisma.game.findMany();
+    return this.prisma.game.findMany({
+      include: this._include,
+    });
   }
 
   findOne(id: number) {
     return this.prisma.game.findUnique({
       where: { id },
+      include: this._include,
     });
   }
 
@@ -64,6 +72,7 @@ export class GameService {
     return this.prisma.game.update({
       where: { id },
       data,
+      include: this._include,
     });
   }
 

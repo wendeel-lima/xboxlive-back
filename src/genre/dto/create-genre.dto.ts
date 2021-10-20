@@ -15,5 +15,5 @@ export class CreateGenreDto extends Genre {
   @IsInt({ each: true })
   @IsArray()
   @IsOptional()
-  gamesIds?: number;
+  gamesIds?: number[];
 }
