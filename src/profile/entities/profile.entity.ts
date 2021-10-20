@@ -1,5 +1,7 @@
+import { CreateUserDto } from 'src/user/dto/create-user.dto';
+
 export class Profile {
-  id?: number;
   name: string;
   frontCover?: string;
+  user: CreateUserDto[];
 }

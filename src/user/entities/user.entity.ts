@@ -1,11 +1,12 @@
-import { Prisma } from '@prisma/client';
+import { CreateProfileDto } from 'src/profile/dto/create-profile.dto';
+import { CreateGameDto } from 'src/game/dto/create-game.dto';
 
 export class User {
-  id?: number;
   name: string;
   surname: string;
   cpf: number;
   email: string;
   password: string;
-  profile?: Prisma.ProfileUncheckedCreateNestedManyWithoutUserInput;
+  profile?: CreateProfileDto[];
+  games?: CreateGameDto[];
 }

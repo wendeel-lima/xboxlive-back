@@ -1,4 +1,6 @@
+import { CreateGameDto } from 'src/game/dto/create-game.dto';
+
 export class Genre {
-  id?: number;
   name: string;
+  games?: CreateGameDto;
 }

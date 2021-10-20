@@ -1,4 +1,12 @@
-import { IsEmail, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import {
+  ArrayNotEmpty,
+  IsArray,
+  IsEmail,
+  IsInt,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+} from 'class-validator';
 import { User } from '../entities/user.entity';
 
 export class CreateUserDto extends User {
@@ -21,4 +29,14 @@ export class CreateUserDto extends User {
   @IsString()
   @IsNotEmpty()
   password: string;
+
+  @IsInt({ each: true })
+  @IsArray()
+  @ArrayNotEmpty()
+  profileIds?: number[];
+
+  @IsInt({ each: true })
+  @IsArray()
+  @ArrayNotEmpty()
+  gamesIds?: number[];
 }

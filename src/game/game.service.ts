@@ -9,8 +9,24 @@ export class GameService {
   constructor(private readonly prisma: PrismaService) {}
 
   create(dto: CreateGameDto) {
+    const usersIds = dto.userIds;
+    const genresIds = dto.genresIds;
+
+    delete dto.userIds;
+    delete dto.genresIds;
+
     const data: Prisma.GameCreateInput = {
       ...dto,
+      users: {
+        connect: usersIds.map((userId) => ({
+          id: userId,
+        })),
+      },
+      genres: {
+        connect: genresIds.map((genreId) => ({
+          id: genreId,
+        })),
+      },
     };
     return this.prisma.game.create({ data });
   }
@@ -25,7 +41,26 @@ export class GameService {
     });
   }
 
-  update(id: number, data: UpdateGameDto) {
+  update(id: number, dto: UpdateGameDto) {
+    const usersIds = dto.userIds;
+    const genresIds = dto.genresIds;
+
+    delete dto.userIds;
+    delete dto.genresIds;
+    const data: Prisma.GameUpdateInput = {
+      ...dto,
+      users: {
+        connect: usersIds.map((userId) => ({
+          id: userId,
+        })),
+      },
+      genres: {
+        connect: genresIds.map((genreId) => ({
+          id: genreId,
+        })),
+      },
+    };
+
     return this.prisma.game.update({
       where: { id },
       data,

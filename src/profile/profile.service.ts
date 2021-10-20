@@ -6,8 +6,9 @@ import { UpdateProfileDto } from './dto/update-profile.dto';
 @Injectable()
 export class ProfileService {
   constructor(private readonly prisma: PrismaService) {}
+
   create(data: CreateProfileDto) {
-    return this.prisma.profile.create({data});
+    return this.prisma.profile.create({ data });
   }
 
   findAll() {
@@ -15,27 +16,21 @@ export class ProfileService {
   }
 
   findOne(id: number) {
-    return this.prisma.profile.findUnique(
-      {
-        where:{id}
-      }
-    );
+    return this.prisma.profile.findUnique({
+      where: { id },
+    });
   }
 
   update(id: number, data: UpdateProfileDto) {
-    return this.prisma.profile.update(
-      {
-        where:{id},
-        data
-      });
-    };
-  
+    return this.prisma.profile.update({
+      where: { id },
+      data,
+    });
+  }
 
   remove(id: number) {
-    return this.prisma.profile.delete(
-      {
-        where:{id}
-      }
-    )
+    return this.prisma.profile.delete({
+      where: { id },
+    });
   }
-  }
+}

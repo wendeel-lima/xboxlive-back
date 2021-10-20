@@ -1,6 +1,7 @@
-import { Prisma } from '.prisma/client';
+import { CreateGenreDto } from 'src/genre/dto/create-genre.dto';
+import { CreateUserDto } from 'src/user/dto/create-user.dto';
 
-export class Game implements Prisma.GameCreateInput {
+export class Game {
   name: string;
   frontCover?: string;
   description?: string;
@@ -8,6 +9,6 @@ export class Game implements Prisma.GameCreateInput {
   score?: number;
   linkTreiler?: string;
   linkGameplay?: string;
-  genres?: Prisma.GenreCreateNestedManyWithoutGamesInput;
-  users?: Prisma.UserCreateNestedManyWithoutGamesInput;
+  genres?: CreateGenreDto[];
+  users?: CreateUserDto[];
 }

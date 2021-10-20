@@ -1,9 +1,9 @@
 import { Optional } from '@nestjs/common';
 import {
-  IsDate,
+  ArrayNotEmpty,
+  IsArray,
   IsInt,
   IsNotEmpty,
-  IsNumber,
   IsOptional,
   IsString,
   IsUrl,
@@ -38,4 +38,14 @@ export class CreateGameDto extends Game {
   @IsUrl()
   @IsOptional()
   linkGameplay?: string;
+
+  @IsInt({ each: true })
+  @IsArray()
+  @ArrayNotEmpty()
+  genresIds?: number[];
+
+  @IsInt({ each: true })
+  @IsArray()
+  @IsOptional()
+  userIds?: number[];
 }
