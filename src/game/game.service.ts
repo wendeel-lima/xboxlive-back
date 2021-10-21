@@ -23,13 +23,13 @@ export class GameService {
     const data: Prisma.GameCreateInput = {
       ...dto,
       users: {
-        connect: usersIds.map((userId) => ({
+        connect: usersIds?.map((userId) => ({
           id: userId,
         })),
       },
       genres: {
-        connect: genresIds.map((genreId) => ({
-          id: genreId,
+        connect: genresIds?.map((genresIds) => ({
+          id: genresIds,
         })),
       },
     };
@@ -58,12 +58,12 @@ export class GameService {
     const data: Prisma.GameUpdateInput = {
       ...dto,
       users: {
-        connect: usersIds.map((userId) => ({
+        connect: usersIds?.map((userId) => ({
           id: userId,
         })),
       },
       genres: {
-        connect: genresIds.map((genreId) => ({
+        connect: genresIds?.map((genreId) => ({
           id: genreId,
         })),
       },

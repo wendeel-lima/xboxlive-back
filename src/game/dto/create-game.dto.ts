@@ -1,4 +1,3 @@
-import { Optional } from '@nestjs/common';
 import {
   ArrayNotEmpty,
   IsArray,
@@ -28,7 +27,7 @@ export class CreateGameDto extends Game {
   year: string;
 
   @IsInt()
-  @Optional()
+  @IsOptional()
   score: number;
 
   @IsUrl()
@@ -41,6 +40,7 @@ export class CreateGameDto extends Game {
 
   @IsInt({ each: true })
   @IsArray()
+  @IsOptional()
   @ArrayNotEmpty()
   genresIds?: number[];
 

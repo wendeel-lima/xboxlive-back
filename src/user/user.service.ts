@@ -29,12 +29,12 @@ export class UserService {
     const data: Prisma.UserCreateInput = {
       ...dto,
       profile: {
-        connect: profileIds.map((profileIds) => ({
+        connect: profileIds?.map((profileIds) => ({
           id: profileIds,
         })),
       },
       games: {
-        connect: gamesIds.map((gamesIds) => ({
+        connect: gamesIds?.map((gamesIds) => ({
           id: gamesIds,
         })),
       },
@@ -64,12 +64,12 @@ export class UserService {
     const data: Prisma.UserUpdateInput = {
       ...dto,
       profile: {
-        connect: profileIds.map((profileIds) => ({
+        connect: profileIds?.map((profileIds) => ({
           id: profileIds,
         })),
       },
       games: {
-        connect: gamesIds.map((gamesIds) => ({
+        connect: gamesIds?.map((gamesIds) => ({
           id: gamesIds,
         })),
       },

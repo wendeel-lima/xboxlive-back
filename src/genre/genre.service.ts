@@ -19,7 +19,7 @@ export class GenreService {
     const data: Prisma.GenreCreateInput = {
       ...dto,
       games: {
-        connect: gamesIds.map((gamesIds) => ({
+        connect: gamesIds?.map((gamesIds) => ({
           id: gamesIds,
         })),
       },
@@ -50,7 +50,7 @@ export class GenreService {
     const data: Prisma.GenreUpdateInput = {
       ...dto,
       games: {
-        connect: gamesIds.map((gamesIds) => ({
+        connect: gamesIds?.map((gamesIds) => ({
           id: gamesIds,
         })),
       },
