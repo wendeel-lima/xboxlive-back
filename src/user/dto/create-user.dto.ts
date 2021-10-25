@@ -4,9 +4,9 @@ import {
   IsEmail,
   IsInt,
   IsNotEmpty,
-  IsNumber,
   IsString,
 } from 'class-validator';
+import { Cpf } from 'src/decorators/cpf.decorator';
 import { User } from '../entities/user.entity';
 
 export class CreateUserDto extends User {
@@ -18,8 +18,7 @@ export class CreateUserDto extends User {
   @IsNotEmpty()
   surname: string;
 
-  @IsNumber()
-  @IsNotEmpty()
+  @Cpf()
   cpf: number;
 
   @IsEmail()
