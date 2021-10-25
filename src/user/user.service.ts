@@ -58,9 +58,16 @@ export class UserService {
     return this.prisma.user.findMany({ include: this._include });
   }
 
-  findOne(id: number) {
+  findByid(id: number) {
     return this.prisma.user.findUnique({
       where: { id },
+      include: this._include,
+    });
+  }
+
+  findByEmail(email: string) {
+    return this.prisma.user.findUnique({
+      where: { email },
       include: this._include,
     });
   }

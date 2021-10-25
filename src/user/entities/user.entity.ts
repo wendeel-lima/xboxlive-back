@@ -4,9 +4,10 @@ import { CreateGameDto } from 'src/game/dto/create-game.dto';
 export class User {
   name: string;
   surname: string;
-  cpf: number;
+  cpf: String;
   email: string;
   password: string;
   profile?: CreateProfileDto[];
   games?: CreateGameDto[];
+  id?: number;
 }

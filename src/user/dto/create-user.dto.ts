@@ -4,6 +4,7 @@ import {
   IsEmail,
   IsInt,
   IsNotEmpty,
+  IsOptional,
   IsString,
 } from 'class-validator';
 import { Cpf } from 'src/decorators/cpf.decorator';
@@ -19,7 +20,7 @@ export class CreateUserDto extends User {
   surname: string;
 
   @Cpf()
-  cpf: number;
+  cpf: string;
 
   @IsEmail()
   @IsNotEmpty()
@@ -32,10 +33,12 @@ export class CreateUserDto extends User {
   @IsInt({ each: true })
   @IsArray()
   @ArrayNotEmpty()
+  @IsOptional()
   profileIds?: number[];
 
   @IsInt({ each: true })
   @IsArray()
+  @IsOptional()
   @ArrayNotEmpty()
   gamesIds?: number[];
 }
