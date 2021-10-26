@@ -29,6 +29,7 @@ export class GameController {
     return this.gameService.findAll();
   }
 
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: number) {
     return this.gameService.findOne(id);
