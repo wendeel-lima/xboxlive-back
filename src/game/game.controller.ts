@@ -12,6 +12,7 @@ import {
 import { GameService } from './game.service';
 import { CreateGameDto } from './dto/create-game.dto';
 import { UpdateGameDto } from './dto/update-game.dto';
+import { Public } from 'src/auth/public.decorator';
 
 @Controller('game')
 export class GameController {
@@ -22,6 +23,7 @@ export class GameController {
     return this.gameService.create(createGameDto);
   }
 
+  @Public()
   @Get()
   findAll() {
     return this.gameService.findAll();
